@@ -5,7 +5,7 @@ class Api::V1::LocationsController < ApplicationController
   end
 
   def create
-    
+
     render json: Location.create(location_params) # why can't I simply use respond_with ?
 
     # if location.save!
@@ -17,6 +17,6 @@ class Api::V1::LocationsController < ApplicationController
   private
 
   def location_params
-    params.permit(:long, :lat, :calls)
+    params.(:location).permit(:long, :lat)
   end
 end
