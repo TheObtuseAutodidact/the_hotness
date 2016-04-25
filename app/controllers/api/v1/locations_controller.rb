@@ -5,7 +5,7 @@ class Api::V1::LocationsController < ApplicationController
   end
 
   def create
-    binding.pry
+    # binding.pry
     render json: Location.create(location_params)
 
     # if location.save!
@@ -17,6 +17,6 @@ class Api::V1::LocationsController < ApplicationController
   private
 
   def location_params
-    params.permit(:long, :lat, :calls)
+    params.require(:location).permit(:long, :lat)
   end
 end
