@@ -5,7 +5,6 @@ class Api::V1::LocationsController < ApplicationController
   end
 
   def create
-    # binding.pry
     render json: Location.create(location_params)
 
     # if location.save!
