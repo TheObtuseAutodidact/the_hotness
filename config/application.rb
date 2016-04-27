@@ -18,7 +18,7 @@ Bundler.require(*Rails.groups)
 module TheHotness
   class Application < Rails::Application
     # Use the responders controller from the responders gem
-    config.app_generators.scaffold_controller :responders_controller
+    # config.app_generators.scaffold_controller :responders_controller
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -32,6 +32,17 @@ module TheHotness
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    # Do not swallow errors in after_commit/after_rollback callbacks.
+
+    config.action_mailer.smtp_settings = {
+      address:              'smtp.sendgrid.net',
+      port:                 '587',
+      domain:               'example.com',
+      user_name:            ENV["SENDGRID_USER_NAME"],
+      password:             ENV["SENDGRID_PASSWORD"],
+      authentication:       'plain',
+      enable_starttls_auto: true
+    }
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
   end
