@@ -9,7 +9,7 @@ class Api::V1::LocationsController < ApplicationController
     if location.save && has_email? # has_email? should be checked on phoneside
       MyLocation.send_location(email_params, location_params).deliver_now
     end
-    render json: location
+    render json: location, status: 201
   end
 
 
