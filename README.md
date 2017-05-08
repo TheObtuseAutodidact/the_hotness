@@ -1,7 +1,7 @@
 # The Hotness
 
 The Hotness is a simple Rails api written to interface with my first PhoneGap app:
-MyApp: https://github.com/TheObtuseAutodidact/myApp
+myApp: https://github.com/TheObtuseAutodidact/myApp
 
 the rails api receives contact(currently only a contact's email) and a user's location data from mobile device/app
 and uses those to send an email to the contact containing a link to a google map
